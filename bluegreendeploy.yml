@@ -5,7 +5,7 @@ metadata:
   name: ktcloud-svc
 spec:
   selector:
-    color: green    # 무슨 라벨이 부착된 파드로 포워딩할것인가?
+    color: blue    # 무슨 라벨이 부착된 파드로 포워딩할것인가?
   ports:
   - port: 80
     targetPort: 80
@@ -19,7 +19,7 @@ kind: Deployment
 metadata:
   name: ktcloud-blue
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       color: blue
@@ -46,7 +46,7 @@ kind: Deployment
 metadata:
   name: ktcloud-green
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       color: green
@@ -64,6 +64,7 @@ spec:
             cpu: "500m"    # 1000m 이 1개 cpu
         ports:
         - containerPort: 80   # nginx 포트 번호
+
 ---
 # keda 구성
 apiVersion: keda.sh/v1alpha1
@@ -90,4 +91,3 @@ spec:
     metadata:
       type: Utilization
       value: "40"
-
