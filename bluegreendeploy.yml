@@ -90,5 +90,5 @@ spec:
  
   - type: cpu
     metadata:
-      type: Utilization
+      metricType: Utilization
       value: "40"
