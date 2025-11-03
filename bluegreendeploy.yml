@@ -84,11 +84,10 @@ spec:
     - type: cron
       metadata:
         timezone: "Asia/Seoul"
-        start: "43 * * * *"
-        end: "50 * * * *"
+        start: "0 * * * *"
+        end: "59 * * * *"
         desiredReplicas: "6"
     - type: cpu
       metadata:
         metricType: "Utilization"
         value: "40"
-
